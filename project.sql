@@ -190,11 +190,11 @@ values ('coffee', 5.00);
 values ('backpack', 40.00);
 
 insert into orders(product_id, user_id)
-values 1, 1;
+values( 1, 1);
 insert into orders(product_id, user_id)
-values 2, 2;
+values( 2, 2);
 insert into orders(product_id, user_id)
-values 3, 3;
+values( 3, 3);
 
 --3
 select product_id from orders
@@ -204,3 +204,9 @@ select * from orders
 
 select sum(product_id) from orders
 where order_id = 1
+
+--join tables
+select * from users
+join orders on users.user_id = orders._id
+select * from product
+join orders on product.product_id = orders.product_id
