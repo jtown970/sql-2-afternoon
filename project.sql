@@ -170,7 +170,8 @@ create table product(
  );
 create table orders(
   order_id serial primary key,
-  product_id integer references product(product_id)
+  product_id integer references product(product_id),
+  user_id integer references users(user_id)
  );
 
  --2 make data to work with
@@ -187,3 +188,19 @@ insert into product(name, price)
 values ('coffee', 5.00);
  insert into product(name, price)
 values ('backpack', 40.00);
+
+insert into orders(product_id, user_id)
+values 1, 1;
+insert into orders(product_id, user_id)
+values 2, 2;
+insert into orders(product_id, user_id)
+values 3, 3;
+
+--3
+select product_id from orders
+where order_id = 1;
+
+select * from orders
+
+select sum(product_id) from orders
+where order_id = 1
