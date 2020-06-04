@@ -154,3 +154,36 @@ WHERE type = 'silver';
 DELETE 
 FROM practice_delete 
 WHERE value = 150;
+
+--ECOMMERCE 
+
+--1
+create table users(
+  user_id serial primary key,
+  name text,
+  email text
+ );
+create table product(
+  product_id serial primary key,
+  name text,
+  price int
+ );
+create table orders(
+  order_id serial primary key,
+  product_id integer references product(product_id)
+ );
+
+ --2 make data to work with
+insert into users(name, email)
+values ('Jason', 'testemail@gmail.com');
+insert into users(name, email)
+values ('Cole', 'realemail@gmail.com');
+insert into users(name, email)
+values ('Drew', 'drewsemail@gmail.com');
+
+insert into product(name, price)
+values ('headphones', 100.00);
+insert into product(name, price)
+values ('coffee', 5.00);
+ insert into product(name, price)
+values ('backpack', 40.00);
